@@ -2,5 +2,9 @@
 
 # simple hello world script
 
-print("Hello World")
+def main():
+	print("Hello World!")
 
+
+
+main()
