@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tasks:
+  - name: make folder under tmp directory
+    file:
+      dest: /tmp/ans
+      state: directory
+  - name: create user
+    user:
+      name: Abuser1
+      password: '$6$esPwTrHgM.FApBDE$52DRQmUNASZmtY7uqRgoy4kEVxhnIPV48HDq1OH59YNGEHwW9n59OagPnoADym4g2sgcSR8DOZ419xLwkFkpF0'
+    become: yes
+- hosts: db
+  tasks:
+  - name: Install mariadb
+    yum:
+      name: "mariadb-server"
+      state: present
+  become: yes
+
